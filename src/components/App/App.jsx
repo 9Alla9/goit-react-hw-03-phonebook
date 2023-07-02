@@ -15,6 +15,7 @@ class App extends Component {
     ],
     filter: '',
   };
+  componentDidUpdate
   addName = ({ name, number }) => {
     if (
       this.state.contacts.find(
