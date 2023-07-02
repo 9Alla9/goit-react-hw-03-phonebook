@@ -17,15 +17,17 @@ class App extends Component {
   };
   componentDidMount() {
     const contacts = localStorage.getItem('contacts');
-    if (contacts) {
-      this.setState({ contacts: JSON.parse(contacts) });
+    const parsedContacts = JSON.parse(contacts);
+
+    if (parsedContacts) {
+      this.setState({ contacts: parsedContacts });
     }
-  }
-  componentDidUpdat(prevProps, prevState) {
-    if (this.state !== prevProps) {
+  };
+   componentDidUpdate(prevProps, prevState ) {
+    if (this.state.contacts !== prevState.contacts) {
       localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
-    }
-  }
+    };
+  };
   addName = ({ name, number }) => {
     if (
       this.state.contacts.find(
